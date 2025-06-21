@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva - Proyecto de Automatizaciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #FFFFFF;
+        }
+        
+        .step-container {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            background-color: #0D3326;
+            border: 2px solid #546C61;
+        }
+        
+        .step-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(13, 51, 38, 0.15);
+        }
+        
+        .step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .step-content.active {
+            max-height: 1000px;
+            opacity: 1;
+        }
+        
+        .timeline-connector {
+            width: 2px;
+            background-color: #546C61;
+            position: absolute;
+            left: 25px;
+            top: 40px;
+            bottom: 0;
+            z-index: 0;
+        }
+        
+        .step-number {
+            z-index: 1;
+            position: relative;
+            background-color: #FFFFFF;
+            border: 2px solid #546C61;
+            color: #0D3326;
+        }
+        
+        .step-number.active {
+            background-color: #546C61;
+            color: #FBF2EC;
+        }
+        
+        .step-icon svg {
+            stroke: #FBF2EC;
+            stroke-width: 1.5;
+        }
+        
+        @media (max-width: 640px) {
+            .timeline-connector {
+                left: 20px;
+            }
+            
+            .step-content {
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="relative">
+            <!-- Timeline connector -->
+            <div class="timeline-connector"></div>
+            
+            <!-- Etapa 1: Planeación -->
+            <div class="step-container mb-8 relative" data-step="1">
+                <div class="p-6 cursor-pointer step-header flex items-start">
+                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4 active">
+                        1
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-[#FBF2EC]">Planeación</h2>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content px-6 pb-6 ml-16 active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Alcance</h3>
+                            <p class="text-[#FBF2EC] opacity-90">Reuniones y conversatorios con equipo directivo designado por Inverlink para diseñar el contenido de los talleres a dictar.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Entregables</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Documento resumen de acuerdos logrados y diseño de alto nivel del taller.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Agenda de talleres a dictar con fechas, asistentes, modalidades y ubicación.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etapa 2: Desarrollo -->
+            <div class="step-container mb-8 relative" data-step="2">
+                <div class="p-6 cursor-pointer step-header flex items-start">
+                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">
+                        2
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-[#FBF2EC]">Desarrollo</h2>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content px-6 pb-6 ml-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Alcance</h3>
+                            <p class="text-[#FBF2EC] opacity-90">Reuniones y conversatorios con equipo directivo designado por Inverlink para diseñar el contenido de los talleres a dictar.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Entregables</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Documento resumen de acuerdos logrados y diseño de alto nivel del taller.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Agenda de talleres a dictar con fechas, asistentes, modalidades y ubicación.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etapa 3: Instrucción -->
+            <div class="step-container mb-8 relative" data-step="3">
+                <div class="p-6 cursor-pointer step-header flex items-start">
+                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">
+                        3
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-[#FBF2EC]">Instrucción</h2>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content px-6 pb-6 ml-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Alcance</h3>
+                            <p class="text-[#FBF2EC] opacity-90">Reuniones y conversatorios con equipo directivo designado por Inverlink para diseñar el contenido de los talleres a dictar.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Entregables</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Documento resumen de acuerdos logrados y diseño de alto nivel del taller.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Agenda de talleres a dictar con fechas, asistentes, modalidades y ubicación.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etapa 4: Soporte -->
+            <div class="step-container mb-8 relative" data-step="4">
+                <div class="p-6 cursor-pointer step-header flex items-start">
+                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">
+                        4
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-[#FBF2EC]">Soporte</h2>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-content px-6 pb-6 ml-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Alcance</h3>
+                            <p class="text-[#FBF2EC] opacity-90">Reuniones y conversatorios con equipo directivo designado por Inverlink para diseñar el contenido de los talleres a dictar.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[#FBF2EC] mb-3">Entregables</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Documento resumen de acuerdos logrados y diseño de alto nivel del taller.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 rounded-full bg-[#FBF2EC] mt-2 mr-3"></div>
+                                    <span class="text-[#FBF2EC] opacity-90">Agenda de talleres a dictar con fechas, asistentes, modalidades y ubicación.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stepContainers = document.querySelectorAll('.step-container');
+            const stepHeaders = document.querySelectorAll('.step-header');
+            const stepContents = document.querySelectorAll('.step-content');
+            const stepNumbers = document.querySelectorAll('.step-number');
+            
+            // Inicializar: abrir la primera etapa
+            stepContents[0].classList.add('active');
+            stepNumbers[0].classList.add('active');
+            
+            // Manejar clics en los encabezados de etapa
+            stepHeaders.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const content = stepContents[index];
+                    const isActive = content.classList.contains('active');
+                    
+                    // Cerrar todas las etapas
+                    stepContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    stepNumbers.forEach(number => {
+                        number.classList.remove('active');
+                    });
+                    
+                    // Si no estaba activa, abrirla
+                    if (!isActive) {
+                        content.classList.add('active');
+                        stepNumbers[index].classList.add('active');
+                    } else {
+                        // Si estaba activa y se hace clic de nuevo, mantenerla abierta
+                        content.classList.add('active');
+                        stepNumbers[index].classList.add('active');
+                    }
+                });
+            });
+            
+            // Asegurar que el diseño sea responsive
+            function adjustForMobile() {
+                if (window.innerWidth <= 640) {
+                    document.querySelectorAll('.ml-16').forEach(el => {
+                        el.classList.remove('ml-16');
+                        el.classList.add('ml-0', 'pl-0', 'mt-4');
+                    });
+                } else {
+                    document.querySelectorAll('.ml-0.pl-0.mt-4').forEach(el => {
+                        el.classList.remove('ml-0', 'pl-0', 'mt-4');
+                        el.classList.add('ml-16');
+                    });
+                }
+            }
+            
+            // Ejecutar al cargar y al cambiar el tamaño de la ventana
+            adjustForMobile();
+            window.addEventListener('resize', adjustForMobile);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'952f731e655d6d9e',t:'MTc1MDQ2NjM3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
